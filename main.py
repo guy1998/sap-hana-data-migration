@@ -19,7 +19,7 @@ TARGET_CONFIG = {
     "address": os.getenv("TARGET_ADDRESS"),
     "port": os.getenv("TARGET_PORT"),
     "user": os.getenv("TARGET_USER"),
-    "password": os.getenv("TARGET_PASS WORD"),
+    "password": os.getenv("TARGET_PASSWORD"),
 }
 
 SOURCE_TABLE = os.getenv("SOURCE_TABLE")
