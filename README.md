@@ -31,7 +31,7 @@ spec:
     spec:
       containers:
         - name: hana-migrator
-          image: your-dockerhub-username/hana-migrator:latest
+          image: ghcr.io/guy1998/sap-hana-data-migration:latest
           imagePullPolicy: Always
           env:
             - name: SOURCE_ADDRESS
@@ -84,6 +84,7 @@ This application uses the following environment variables to configure the sourc
 | `TARGET_TABLE` | Full name of the target table            | `MY_SCHEMA.TARGET_DATA` |
 | `BATCH_SIZE`   | Number of rows per batch migration       | `1000`                  |
 | `ORDER_BY`     | Column name to order rows during reading | `ID`                    |
+Warning: ORDER_BY is crucial to the batching strategy with offset. I recommend putting there your primary key (composite PK like this 'key1, key2'). It is necessary so that we do not sample the same rows in 2 different batches. In other words it guarantees each batch is unique. 
 ### Logging
 | Variable   | Description                         | Example       |
 | ---------- | ----------------------------------- | ------------- |
